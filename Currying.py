@@ -33,3 +33,22 @@ add_10_100 = add_10(100)
 print(add_10_100(1000))
 # Or
 print(add(10)(100)(1000))
+
+----------------  Currying In Its Best Version --------------
+
+
+def addt(t):
+    def addf(f):
+        def adds(s):
+            return t + f + s
+        return adds
+    return addf
+
+two = addt(2)
+four = two(4)
+six = four(6)
+# Or
+print(addt(2)(4)(6))
+
+print(six)
+
